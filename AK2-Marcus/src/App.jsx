@@ -23,7 +23,7 @@ function App() {
   ]
 
    const [handleList, setHandleListe] = useState(handleListe)
-   const [handle, setHandel] = useState()
+   const [handle, setHandel] = useState({itemName: "", count: 0})
 
   return (
     <>

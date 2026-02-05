@@ -3,7 +3,7 @@ export default function AddForm({handle, setHandel, setHandleListe}){
     const handleChange = (e) => {
 
         const {name, value} = e.target
-        console.log("change")
+        console.log(`${e.target.name}: ${e.target.value}`)
 
         setHandel((prev) => ({
             ...prev,
@@ -13,9 +13,20 @@ export default function AddForm({handle, setHandel, setHandleListe}){
 
     const leggTilVare = (e) => {
         e.preventDefault()
-        console.log(handle)
         const uniqId = crypto.randomUUID()
-        setHandleListe((prev) => ([...prev, {id:uniqId, ...handle}]))
+
+        if (!handle.itemName){
+            alert("Feltet for vare kan ikke være tomt")
+            return
+        }
+
+        if (handle.count <= 0 || !handle.count){
+            alert("Antall kan ikke være tomt eller under 1")
+            return
+        } 
+
+        setHandleListe((prev) => ([{id:uniqId, ...handle}, ...prev]))
+        
     }
 
     return(
