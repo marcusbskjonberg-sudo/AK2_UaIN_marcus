@@ -1,4 +1,4 @@
-export default function AddForm({handle, setHandel, setHandleListe}){
+export default function AddForm({handle, setHandel, setHandleListe, errorMsg, setErrorMsg}){
     
     const handleChange = (e) => {
 
@@ -16,21 +16,30 @@ export default function AddForm({handle, setHandel, setHandleListe}){
         const uniqId = crypto.randomUUID()
 
         if (!handle.itemName){
-            alert("Feltet for vare kan ikke være tomt")
+            console.log("Feil: tomt itemName")
+            setErrorMsg("Feltet for vare kan ikke være tomt")
             return
         }
 
-        if (handle.count <= 0 || !handle.count){
-            alert("Antall kan ikke være tomt eller under 1")
+        if (!handle.count){
+            console.log("Feil: tomt count")
+            setErrorMsg("Feltet for antall kan ikke være tomt")
+            return
+        } 
+        if (handle.count <= 0){
+            console.log("Feil: antall under 1")
+            setErrorMsg("Antall må være minst 1")
             return
         } 
 
         setHandleListe((prev) => ([{id:uniqId, ...handle}, ...prev]))
+        setErrorMsg("")
         
     }
 
     return(
         <form onSubmit={leggTilVare}>
+            <p id="Error-Msg">{errorMsg}</p>
             <label htmlFor="Vare">Vare</label>
             <input type="text" name="itemName" id="Vare" placeholder="Banan" onChange={handleChange}/>
             <label htmlFor="Antall">Antall</label>

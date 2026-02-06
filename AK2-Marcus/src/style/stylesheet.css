@@ -27,6 +27,10 @@ main{
     }
     }
 
+    #Error-Msg{
+        color: red;
+    }
+
     article{
         display: flex;
         align-items: center;

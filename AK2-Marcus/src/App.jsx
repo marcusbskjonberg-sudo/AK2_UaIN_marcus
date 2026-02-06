@@ -24,7 +24,7 @@ function App() {
 
    const [handleList, setHandleListe] = useState(handleListe)
    const [handle, setHandel] = useState({itemName: "", count: 0})
-   const [errorMsg, setErrorMsg] = useState({msg: ""})
+   const [errorMsg, setErrorMsg] = useState("")
 
   return (
     <>
@@ -33,8 +33,8 @@ function App() {
       <main>
         <section id="Handleliste-Container">
           <h2>Handleliste</h2>
-          <AddForm handle={handle} setHandel={setHandel} setHandleListe={setHandleListe}/>
-          <ShoppingList handleListe={handleList} setHandleListe={setHandleListe} errorMsg={errorMsg} setErrorMsg={setErrorMsg}/>
+          <AddForm handle={handle} setHandel={setHandel} setHandleListe={setHandleListe} errorMsg={errorMsg} setErrorMsg={setErrorMsg}/>
+          <ShoppingList handleListe={handleList} setHandleListe={setHandleListe}/>
         </section>
       </main>
       <footer><h3>Marcus</h3></footer>
