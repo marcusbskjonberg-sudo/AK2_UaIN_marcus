@@ -37,7 +37,7 @@ function App() {
           <ShoppingList handleListe={handleList} setHandleListe={setHandleListe}/>
         </section>
       </main>
-      <footer><h3>Marcus</h3></footer>
+      <footer><p>Marcus</p></footer>
     
     </>
   )
